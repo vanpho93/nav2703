@@ -12,11 +12,11 @@ export default class WeatherForm extends Component {
                 <TextInput 
                     style={{ width: 300, height: 40, backgroundColor: '#fff', paddingLeft: 10 }}
                     value={this.state.city}
-                    onChangeText={text => this.setState({ text })}
+                    onChangeText={text => this.setState({ city: text })}
                     placeholder="Enter your city name"
                 />
                 <TouchableOpacity style={{ padding: 10, backgroundColor: 'lightblue', margin: 10, borderRadius: 2 }}>
-                    <Text style={{ color: 'green', fontWeight: 'bold' }}>Get weather</Text>
+                    <Text style={{ color: '#fff', fontWeight: 'bold' }}>Get weather</Text>
                 </TouchableOpacity>
             </View>
         );
