@@ -10,11 +10,15 @@ export default class Weather extends Component {
         this.state = { city: 'Saigon' };
     }
 
+    changeCity(city) {
+        this.setState({ city });
+    }
+
     render() {
         const { city } = this.state;
         return (
             <View style={{ backgroundColor: '#B7B7B7', flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-                <WeatherForm />
+                <WeatherForm onChangeCity={this.changeCity.bind(this)} />
                 <WeatherMessage city={city} />
             </View>
         );

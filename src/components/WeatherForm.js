@@ -6,6 +6,12 @@ export default class WeatherForm extends Component {
         super(props);
         this.state = { city: '' };
     }
+
+    changeCityName() {
+        this.props.onChangeCity(this.state.city);
+        this.setState({ city: '' });
+    }
+
     render() {
         return (
             <View style={{ backgroundColor: '#B7B7B7', alignItems: 'center' }}>
@@ -15,7 +21,7 @@ export default class WeatherForm extends Component {
                     onChangeText={text => this.setState({ city: text })}
                     placeholder="Enter your city name"
                 />
-                <TouchableOpacity style={{ padding: 10, backgroundColor: 'lightblue', margin: 10, borderRadius: 2 }}>
+                <TouchableOpacity onPress={this.changeCityName.bind(this)} style={{ padding: 10, backgroundColor: 'lightblue', margin: 10, borderRadius: 2 }}>
                     <Text style={{ color: '#fff', fontWeight: 'bold' }}>Get weather</Text>
                 </TouchableOpacity>
             </View>
