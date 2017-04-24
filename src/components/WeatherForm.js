@@ -9,13 +9,14 @@ export default class WeatherForm extends Component {
 
     changeCityName() {
         const { city } = this.state;
+        const { onChangeTemp } = this.props;
         this.props.onChangeCity(city);
         this.setState({ city: '' });
         const api = '01cc37655736835b0b75f2b395737694';
         const url = `http://api.openweathermap.org/data/2.5/find?units=metric&appid=${api}&q=${city}`;
         fetch(url)// eslint-disable-line
         .then(res => res.json())
-        .then(resJSON => console.log(resJSON));
+        .then(resJSON => onChangeTemp(resJSON.list[0].main.temp));
     }
 
     render() {
