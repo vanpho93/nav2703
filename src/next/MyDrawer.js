@@ -4,7 +4,7 @@ import Drawer from 'react-native-drawer';
 
 export default class MyDrawer extends Component {
     openMenu() {
-        this._drawer.open();
+        this.drawer.open();
     }
     render() {
         const MenuView = (
@@ -14,8 +14,10 @@ export default class MyDrawer extends Component {
         );
         return (
             <Drawer
-                ref={(ref) => this._drawer = ref}
+                ref={(ref) => this.drawer = ref}
                 content={MenuView}
+                openDrawerOffset={0.2}
+                tapToClose
             >
                 <View style={{ flex: 1, backgroundColor: 'lightblue' }}>
                     <Text>Main View</Text>
